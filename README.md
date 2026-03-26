@@ -1,6 +1,8 @@
 ![CVE](https://img.shields.io/badge/CVE-2026--29905-red)
 # CVE-2026-29905 — Kirby CMS Persistent DoS via Malformed Image Upload
 
+> This vulnerability has been assigned CVE-2026-29905 by MITRE.
+
 ## Overview
 
 A authenticated user with **Editor** permissions can upload a malformed file with an image extension to cause a persistent Denial of Service in Kirby CMS.
