@@ -1,3 +1,4 @@
+![CVE](https://img.shields.io/badge/CVE-2026--29905-red)
 # CVE-2026-29905 — Kirby CMS Persistent DoS via Malformed Image Upload
 
 ## Overview
