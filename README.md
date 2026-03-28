@@ -36,9 +36,14 @@ Patched in [Kirby CMS 5.2.0-rc.1](https://github.com/getkirby/kirby/releases/tag
 
 ---
  
-## References
-- 🔗 [CVE-2026-29905 on cve.org](https://www.cve.org/CVERecord?id=CVE-2026-29905)
-- 🔗 [Kirby CMS 5.2.0-rc.1 Release](https://github.com/getkirby/kirby/releases/tag/5.2.0-rc.1)
+# References
+
+- [CVE-2026-29905 on cve.org](https://www.cve.org/CVERecord?id=CVE-2026-29905)
+- [CVE-2026-29905 on NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-29905)
+- [GHSA-cw7v-45wm-mcf2](https://github.com/advisories/GHSA-cw7v-45wm-mcf2)
+- [PoC – Stalin-143/CVE-2026-29905](https://github.com/Stalin-143/CVE-2026-29905)
+- [Kirby CMS 5.2.0-rc.1 Release](https://github.com/getkirby/kirby/releases/tag/5.2.0-rc.1)
+- [Supporting Document (Google Drive)](https://drive.google.com/file/d/1MwvvSYIwnC8kOIzjycGMQZw4d2K2ef8h/view?usp=sharing)
  
 ---
 ## Discoverer
