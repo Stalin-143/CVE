@@ -1,52 +1,51 @@
-# CVE-2026-30081 — Security Advisory
+![CVE](https://img.shields.io/badge/CVE-2026--29905-red)
+# CVE-2026-29905 — Kirby CMS Persistent DoS via Malformed Image Upload
 
-![CVE](https://img.shields.io/badge/CVE-2026--30081-red) ![CWE](https://img.shields.io/badge/CWE--319-Cleartext%20Transmission-orange) ![Severity](https://img.shields.io/badge/Severity-HIGH-critical)
+> CVE-2026-29905 has been officially published by MITRE.
 
-> CVE-2026-30081 has been officially published by MITRE.
+## Overview
 
----
+A authenticated user with **Editor** permissions can upload a malformed file with an image extension to cause a persistent Denial of Service in Kirby CMS.
 
-## Vulnerability Overview
-
-| Field            | Value                                                       |
-| :--------------- | :---------------------------------------------------------- |
-| **CVE ID**       | CVE-2026-30081                                              |
-| **CWE**          | CWE-319: Cleartext Transmission of Sensitive Information    |
-| **Device Model** | QN-I-470                                                    |
-| **Firmware**     | 6.1.1.B1                                                    |
-| **Severity**     | HIGH                                                        |
-| **Vendor**       | Quantum Networks                                            |
+**CVE ID:** CVE-2026-29905
+**Affected Version:** Kirby CMS ≤ 5.1.4
+**Fixed In:** Kirby CMS 5.2.0-rc.1
+**Severity:** Medium
+**CWE:** CWE-252 (Unchecked Return Value), CWE-20 (Improper Input Validation)
 
 ---
 
-##  Vulnerability Description
+## Description
 
-The administrative web interface of the affected Quantum Networks router (QN-I-470, firmware 6.1.1.B1) transmits authentication credentials in cleartext over the network.
+Kirby processes uploaded image files using PHP's `getimagesize()` function without validating its return value. When a malformed file is uploaded with a valid image extension (e.g. `.jpg`), `getimagesize()` returns `false` instead of an array. The application then triggers a fatal `TypeError` during thumbnail generation or metadata processing.
 
-When an administrator authenticates to the web-based management interface over HTTP, the supplied username and password are sent without any transport-layer encryption. As a result, an adjacent network attacker with access to the same broadcast domain can passively intercept network traffic and recover valid administrative credentials.
-
-Successful credential disclosure enables complete compromise of the affected device.
+The crash persists across page reloads until the file is manually removed from the filesystem.
 
 ---
 
-##  Impact
+## Impact
 
-An attacker capable of intercepting network traffic on the same local network can:
-
-- Obtain valid administrative credentials
-- Gain full administrative control over the affected router
-- Modify critical network configuration, including routing, DNS, and firewall settings
-- Perform traffic interception, redirection, or manipulation
-- Establish persistent or stealthy access to the network infrastructure
-
-> Given that the affected device functions as a network gateway, successful exploitation may enable network-wide attacks against connected systems, significantly increasing the overall impact.
-
+- Any Editor-role user (non-admin) can trigger the DoS condition.
+- Affected pages return HTTP 500 until the file is removed manually.
 
 ---
 
-##  References
+## Fix
 
-1. [OWASP Top 10 — A02:2021 Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
-2. [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)
+Patched in [Kirby CMS 5.2.0-rc.1](https://github.com/getkirby/kirby/releases/tag/5.2.0-rc.1).
 
 ---
+ 
+# References
+
+- [CVE-2026-29905 on cve.org](https://www.cve.org/CVERecord?id=CVE-2026-29905)
+- [CVE-2026-29905 on NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-29905)
+- [GHSA-cw7v-45wm-mcf2](https://github.com/advisories/GHSA-cw7v-45wm-mcf2)
+- [PoC – Stalin-143/CVE-2026-29905](https://github.com/Stalin-143/CVE-2026-29905)
+- [Kirby CMS 5.2.0-rc.1 Release](https://github.com/getkirby/kirby/releases/tag/5.2.0-rc.1)
+- [Supporting Document (Google Drive)](https://drive.google.com/file/d/1MwvvSYIwnC8kOIzjycGMQZw4d2K2ef8h/view?usp=sharing)
+ 
+---
+## Discoverer
+
+**Stalin S** ([@Stalin-143](https://github.com/Stalin-143))
