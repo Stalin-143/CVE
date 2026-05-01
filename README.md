@@ -16,6 +16,7 @@ CVEs that were discovered and reported by Stalin S.
 | [CVE-2026-29905](reported/CVE-2026-29905.md) | Kirby CMS Persistent DoS via Malformed Image Upload | Medium |
 | [CVE-2026-41037](reported/CVE-2026-41037.md) | Missing Rate Limiting (Quantum Networks Router) | High (8.7) |
 | [CVE-2026-41039](reported/CVE-2026-41039.md) | Information Disclosure (Quantum Networks Router) | High (8.7) |
+| [CVE-2026-99888](reported/CVE-2026-99888.md) | Information Disclosure (Quantum Networks Router) | High (8.7) |
 
 ---
 
