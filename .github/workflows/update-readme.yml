@@ -1,0 +1,41 @@
+name: Auto-update README on CVE changes
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "reported/**"
+      - "patches/**"
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update README.md
+        run: python scripts/update_readme.py
+
+      - name: Commit and push if README changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "No changes to README.md — skipping commit."
+          else
+            git commit -m "docs: auto-update README CVE tables"
+            git push
+          fi
