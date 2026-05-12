@@ -17,6 +17,7 @@ CVEs that were discovered and reported by Stalin S.
 | [CVE-2026-41037](reported/CVE-2026-41037.md) | Missing Rate Limiting (Quantum Networks Router) | High (8.7) |
 | [CVE-2026-41039](reported/CVE-2026-41039.md) | Information Disclosure (Quantum Networks Router) | High (8.7) |
 | [CVE-2026-42290](reported/CVE-2026-42290.md) | protobufjs `pbts` Command Injection via Unsanitized File Paths | High |
+| [CVE-2026-45152](reported/CVE-2026-45152.md) | uniget Command Injection via Unsafe `tool.Check` Execution | High |
 
 ---
 
