@@ -32,3 +32,4 @@ CVEs where Stalin S fixed the security issue.
 | [CVE-2026-41575](patches/CVE-2026-41575.md) | DOM-Based XSS (IP Reputation Checker) | Moderate |
 | [CVE-2026-41900](patches/CVE-2026-41900.md) | RCE via Sandbox Escape (OpenLearnX) | High |
 | [CVE-2026-44720](patches/CVE-2026-44720.md) | Authentication Bypass via JWT Signature Verification Disabled (OpenLearnX) | Moderate |
+| [CVE-2026-48098](patches/CVE-2026-48098.md) | Unsafe Use of sudo and shell=True in NexTOR IP Changer | High |
