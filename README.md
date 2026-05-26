@@ -1,5 +1,9 @@
 # CVE Research
 
+
+[![Self-Hosted Git](https://img.shields.io/badge/Self--Hosted-Gitea-green?style=flat-square\&logo=gitea\&logoColor=white)](https://git.w4nn4d13.tech/0x5t4l1n/CVE)
+
+
 A collection of CVE disclosures and security patches by **Stalin S**.
 
 - **Reported** — vulnerabilities discovered and reported by Stalin S.
